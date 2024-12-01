@@ -2014,13 +2014,11 @@ let count = 0;
 let leftData = data.left.sort((a, b) => a - b);
 let rightData = data.right.sort((a, b) => a - b);
 
-leftData.forEach( (_, index) => {
+leftData.forEach( (value) => {
 
-    let leftStep = leftData[index];
-    let rightStep = rightData[index];
+    let newArr = rightData.filter( num => num == value);
 
-    count = count + (leftStep < rightStep ? rightStep-leftStep : leftStep-rightStep);
-    
+    count += value * newArr.length;
 })
 console.log(count)
 
